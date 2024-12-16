@@ -11,7 +11,7 @@ const CountryDetails = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`https://date.nager.at/api/v3/CountryInfo/${countryCode}`)
+    fetch(`http://localhost:3000/api/countries/info/${countryCode}`)
       .then(response => {
         if (!response.ok) {
           throw new Error("Failed to fetch country details");

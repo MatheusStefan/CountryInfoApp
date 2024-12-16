@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Countries, Flag } from "../types/types";
-import { getCountries } from "../api/getCountries";
 import { Link } from "react-router-dom";
 import { getFlags } from "../api/getFlags";
+import { getCountries } from "../api/getCountries";
 
 const Home = () => {
   const [countries, setCountries] = useState<Countries[]>([]);
@@ -10,7 +10,6 @@ const Home = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log("Fetching countries...");
     getCountries()
       .then(data => {
         setCountries(data);
