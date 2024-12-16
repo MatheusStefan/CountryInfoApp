@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Country, Flag } from "../types/types";
 import { getFlags } from "../api/getFlags";
+import PopulationChart from "../components/PopulationChart";
 
 const CountryDetails = () => {
   const { countryCode } = useParams<{ countryCode: string }>();
@@ -70,7 +71,7 @@ const CountryDetails = () => {
             <ul className="mt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
               {country.borders.map((border) => (
                 <li key={border.countryCode} className="text-sm text-gray-500 hover:text-black transition-all duration-300">
-                  <Link to={`/country/${border.countryCode}`}>
+                  <Link to={`/country/${border.countryCode}`} className="underline underline-offset-2">
                     {border.commonName} ({border.countryCode})
                   </Link>
                 </li>
@@ -81,6 +82,7 @@ const CountryDetails = () => {
           <p className="text-sm text-gray-500">No borders available</p>
         )}
       </div>
+      <PopulationChart />
     </div>
   );
 }

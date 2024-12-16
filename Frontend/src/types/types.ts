@@ -31,3 +31,21 @@ export type FlagApiResponse = {
   msg: string;
   data: Flag[];
 };
+
+type PopulationCount = {
+  year: number;
+  value: number;
+}
+
+export type Population = {
+  country: string;
+  code: string;
+  iso3: string;
+  populationCounts: PopulationCount[];
+}
+
+export type ApiResponse = {
+  error: boolean;
+  msg: string;
+  data: Population[];
+}
